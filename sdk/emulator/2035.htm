@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Highcharts Example</title>
+
+		<script type="text/javascript" src="../../js/jquery/jquery-2.1.4.min.js"></script>
+		<style type="text/css">
+${demo.css}
+		</style>
+		<script type="text/javascript">
+$(function () {
+    $('#container').highcharts({
+        title: {
+            text: '模拟器&真机总量',
+            x: -20 //center
+        },
+        subtitle: {
+            text: '数据来源: AllBlue',
+            x: -20
+        },
+        xAxis: {
+            categories: ['2016/03/02', '2016/03/03', '2016/03/04', '2016/03/05', '2016/03/06', '2016/03/07', '2016/03/08']
+        },
+        yAxis: [
+        {
+            title: {
+                text: '真机 (个)'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        {
+            title: {
+                text: '模拟器 (个)'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#89A54E'
+            }],
+            opposite: true
+        }
+        ],
+        tooltip: {
+            valueSuffix: '个'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [
+        {
+            name: '真机',
+            yAxis: 0,
+            data: [105427, 100000, 105427, 100000, 105427, 100000, 105427]
+        }, 
+        {
+            name: '模拟器',
+            yAxis: 1,
+            data: [1055, 2055, 1055, 4055, 1055, 5055, 1055]
+        }]
+    });
+});
+		</script>
+	</head>
+	<body>
+<script src="../../js/highcharts/highcharts.js"></script>
+<script src="../../js/highcharts/modules/exporting.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 50px 300px"></div>
+
+	</body>
+</html>
